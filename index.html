@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zachary Miller | Marketing Leader</title>
+    <title>Zachary Miller | Comms, Marketing, & PR</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.zchrymllr.com/">
+    <meta property="og:title" content="Zachary Miller | Comms, Marketing, & PR">
+    <meta property="og:description" content="Strategic marketing leader specializing in brand strategy, digital analytics, and audience growth. View my portfolio and resume.">
+    <meta property="og:image" content="https://www.zchrymllr.com/assets/social-preview.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.zchrymllr.com/">
+    <meta property="twitter:title" content="Zachary Miller | Comms, Marketing, & PR">
+    <meta property="twitter:description" content="Hello👋, I'm Zachary Miller – a communications, marketing, and public relations professional. Check out my page to learn more about my career and get in touch me.">
+    <meta property="twitter:image" content="https://www.zchrymllr.com/assets/social-preview.png">
+
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="ZM Resume" />
     <link rel="manifest" href="assets/site.webmanifest" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -76,10 +90,10 @@
         
         /* --- CUSTOM EMOJI ICON --- */
         .emoji-img {
-            height: 1.1em;  /* Sets height relative to the font size */
-            width: auto;    /* Maintains aspect ratio */
-            vertical-align: text-bottom; /* Aligns it nicely with the text baseline */
-            margin-right: 4px; /* Gives it a little breathing room */
+            height: 1.1em;
+            width: auto;
+            vertical-align: text-bottom;
+            margin-right: 4px;
             display: inline-block;
         }
 
@@ -119,7 +133,9 @@
 
         .first-name { font-weight: 300; font-size: 2.8rem; letter-spacing: -1px; }
         .last-name { font-weight: 800; font-size: 2.8rem; letter-spacing: -1px; }
-        header.scrolled .first-name, header.scrolled .last-name { font-size: 1.4rem; }
+        
+        /* UPDATED: Larger font size for DESKTOP scrolled state */
+        header.scrolled .first-name, header.scrolled .last-name { font-size: 2.0rem; }
 
         .tagline { 
             font-size: 1rem; color: var(--accent); font-weight: 600; 
@@ -139,6 +155,18 @@
             border: 1px solid var(--border); gap: 8px;
         }
         .btn:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); opacity: 1; }
+
+        /* LINKEDIN LOGO FIX */
+        .btn-logo {
+            height: 18px; /* Constrains height to match text buttons */
+            width: auto;  /* Maintains aspect ratio */
+            display: block;
+	    transition: filter 0.3s ease;
+        }
+
+	[data-theme="dark"] .btn-logo {
+	    filter: brightness(0) invert(1);
+	}
 
         /* --- CONTENT CARDS --- */
         .container { max-width: 850px; margin: 0 auto; padding: 1.5rem; }
@@ -163,35 +191,20 @@
             opacity: 0.8;
         }
         
-        /* New Rule: Ensures logo links don't get the fade-out effect of normal links */
-        .logo-section a:hover {
-            opacity: 1;
-        }
+        .logo-section a:hover { opacity: 1; }
 
         .logo-item {
-            max-width: 120px;
-            max-height: 60px;
-            width: auto;
-            padding: 1.5rem; 
-            box-sizing: content-box;
+            max-width: 120px; max-height: 60px; width: auto;
+            padding: 1.5rem; box-sizing: content-box;
             filter: grayscale(100%) opacity(0.6); 
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .logo-item:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
-        }
+        .logo-item:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
 
-        /* Dark Mode Logo Fixes */
-        [data-theme="dark"] .logo-item {
-            filter: grayscale(100%) brightness(0) invert(1) opacity(0.5);
-        }
-        
-        [data-theme="dark"] .logo-item:hover {
-            filter: grayscale(100%) brightness(0) invert(1) opacity(1);
-        }
+        [data-theme="dark"] .logo-item { filter: grayscale(100%) brightness(0) invert(1) opacity(0.5); }
+        [data-theme="dark"] .logo-item:hover { filter: grayscale(100%) brightness(0) invert(1) opacity(1); }
 
         /* --- GRID LAYOUT --- */
         .grid-layout { 
@@ -202,8 +215,7 @@
         }
         
         .sub-card { 
-            padding: 1.5rem; 
-            border-radius: 14px; 
+            padding: 1.5rem; border-radius: 14px; 
             border: 1px solid var(--sub-card-border); 
             background: var(--sub-card-bg); 
             transition: box-shadow 0.2s ease;
@@ -213,7 +225,6 @@
         .sub-card p { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text); }
         .impact-line { display: block; margin-top: 1rem; }
         
-        /* Recommendation Specifics */
         .rec-quote { font-style: italic; color: var(--text); margin-bottom: 1rem; display: block; }
         .rec-author { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
         .rec-role { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
@@ -226,38 +237,125 @@
         /* --- SKILL TAGS --- */
         .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-tag { 
-            background: var(--tag-bg); 
-            color: var(--tag-text); 
-            padding: 4px 12px; 
-            border-radius: 6px; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
+            background: var(--tag-bg); color: var(--tag-text); 
+            padding: 4px 12px; border-radius: 6px; 
+            font-size: 0.85rem; font-weight: 600; 
             transition: background 0.3s, color 0.3s;
         }
         
         ul { padding-left: 1.2rem; }
         li { margin-bottom: 0.6rem; }
 
+        /* --- FLOATING CONTROLS --- */
         .theme-toggle {
             position: fixed; bottom: 2rem; right: 2rem; z-index: 2000;
             background: var(--accent); color: white; border: none; width: 45px; height: 45px;
             border-radius: 50%; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        
+        .back-to-top {
+            position: fixed; 
+            bottom: 5.5rem; /* Places it directly above the Theme Toggle */
+            right: 2rem; 
+            z-index: 1999;
+            width: 45px; 
+            height: 45px;
+            border-radius: 50%; 
+            background: var(--card-bg); 
+            color: var(--accent);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+        .back-to-top:hover { background: var(--accent); color: white; transform: translateY(-3px); }
 
         footer { text-align: center; padding: 3rem; color: #a0aec0; font-size: 0.85rem; }
 
+        /* --- MOBILE LAYOUT FIXES (CENTER STACK) --- */
         @media (max-width: 600px) {
-            .header-content { flex-direction: column-reverse; text-align: center; }
-            .branding { align-items: center; margin-top: 1.5rem; }
-            .profile-img { margin-left: 0; width: 140px; height: 140px; }
-            header.scrolled .header-content { flex-direction: row; }
-            .links-container { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+            /* 1. EXPANDED MOBILE HEADER (Default) */
+            .header-content {
+                flex-direction: column-reverse; /* Puts Image on Top, Text on Bottom */
+                text-align: center;
+                align-items: center; 
+            }
+
+            .branding {
+                align-items: center; /* Centers the name & tagline */
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .profile-img {
+                margin-left: 0;
+                width: 140px; 
+                height: 140px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Button Logic: Fit 3 across with no wrapping */
+            .links-container {
+                flex-direction: row;
+                flex-wrap: nowrap; /* Forces single line */
+                justify-content: center;
+                gap: 6px; /* Tighter gap */
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .btn {
+                padding: 0.5rem 0.4rem; /* Slim horizontal padding */
+                font-size: 0.75rem; /* Smaller text to fit screen */
+                flex: 1; /* Forces buttons to share width equally */
+                justify-content: center;
+                white-space: nowrap; /* Prevents text from breaking onto two lines */
+            }
+
+            /* 2. SCROLLED MOBILE HEADER (Collapsed) */
+            header.scrolled .header-content {
+                flex-direction: row; /* Side-by-side layout */
+                justify-content: space-between; /* Pushes Name Left, Image Right */
+                align-items: center; /* Vertically centers them */
+                padding: 0.5rem 1.5rem; 
+            }
+
+            header.scrolled .branding {
+                margin-top: 0;
+                align-items: flex-start; /* Keeps name anchored left */
+                width: auto;
+            }
+
+            /* UPDATED: Mobile Scrolled Name Size */
+            header.scrolled .first-name, 
+            header.scrolled .last-name { 
+                font-size: 1.7rem; 
+                line-height: 1;
+            }
+
+            header.scrolled .profile-img {
+                width: 40px;
+                height: 40px;
+                margin-left: 0;
+            }
+            
+            header.scrolled .tagline, 
+            header.scrolled .links-container { 
+                display: none; 
+            }
         }
     </style>
 </head>
 <body>
 
 <button class="theme-toggle" id="theme-btn" aria-label="Toggle Dark Mode">🌓</button>
+<button class="back-to-top" id="top-btn" aria-label="Back to Top">↑</button>
 
 <header id="main-header">
     <div class="header-content">
@@ -267,9 +365,12 @@
                     <span class="first-name">Zachary</span><span class="last-name">Miller</span>
                 </h1>
             </div>
-            <p class="tagline">Marketing & Strategic Communications</p>
+            <p class="tagline">Strategic Communications & Marketing</p>
             <div class="links-container">
-                <a href="https://linkedin.com/in/zacharyamiller" target="_blank" class="btn">👔 LinkedIn</a>
+                <a href="https://linkedin.com/in/zacharyamiller" target="_blank" class="btn" aria-label="LinkedIn Profile">
+                    <img src="assets/logo-linkedin.png" alt="LinkedIn" class="btn-logo">
+                </a>
+                
                 <a href="#" id="contact-link" class="btn">📧 Email Me</a>
                 <a href="assets/resume.pdf" target="_blank" class="btn">📄 Resume (PDF)</a>
             </div>
@@ -298,7 +399,7 @@
     </div>
 
     <div class="card" data-tilt>
-        <h2>🏆 Big Brand Experience</h2>
+        <h2>🐝 Big Beehive Brands</h2>
         <p style="margin-bottom: 2rem;">I've had the privilege of helping manage some of Utah's most recognizable organizations and brands.</p>
         
         <div class="logo-section">
@@ -432,7 +533,7 @@
             <ul>
                 <li>Conducted academic research on media effects, social media, and strategic communications.</li>
                 <li>Published <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GXyUjFcAAAAJ&citation_for_view=GXyUjFcAAAAJ:u5HHmVD_uO8C" target="_blank"><strong>master's thesis</strong></a> researching the use of social media by collegiate athletic departments.</li>
-                <li>Co-authored and presented <a href="https://comms.byu.edu/school-of-communications-program-prepares-graduate-students-for-success/" target="_blank"><strong>award-winning research</strong></a> at the 2018 <a href="https://www.iprrc.org/"><strong>International Public Relations Research Conference</strong></a>.</li>
+                <li>Co-authored and presented <a href="https://comms.byu.edu/school-of-communications-program-prepares-graduate-students-for-success/" target="_blank"><strong>award-winning research</strong></a> at the 2018 International PR Research Conference.</li>
             </ul>
         </div>
 
@@ -456,7 +557,7 @@
                 <img src="assets/oregon-ducks.svg" alt="Oregon Ducks Logo" class="emoji-img"> 
                 Cheering for <strong><a href="https://youtu.be/5K3w7CKkeOQ" target="_blank">#GoDucks</a></strong>.
             </li>
-            <li>🛝 Snacking on cereal, but not in the way you might think.</li>
+            <li>🥣 Snacking on cereal (ask me about it).</li>
             <li>🤖 Building custom automations in <strong><a href="https://www.home-assistant.io/" target="_blank">Home Assistant</a></strong> for a smarter home.</li>
             <li>🍿 Adding my most recent movie watch to <strong><a href="https://boxd.it/6908n" target="_blank">Letterboxd</a></strong>.</li>
         </ul>
@@ -499,7 +600,7 @@
         setTheme(next);
     };
 
-    // 3. Email Obfuscation Logic (UPDATED)
+    // 3. Email Obfuscation Logic (Prevent Bots)
     const contactLink = document.getElementById('contact-link');
     if (contactLink) {
         contactLink.addEventListener('click', (e) => {
@@ -515,17 +616,36 @@
     document.querySelectorAll('[data-tilt]').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            // Calculate mouse position relative to card center
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
             
-            // Apply rotation ONLY (Scale removed to prevent jumpiness)
+            // Apply rotation ONLY (Scale removed)
             card.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${y * -3}deg)`;
         });
         
         // Reset on mouse leave
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        });
+    });
+
+    // 5. Back to Top Logic
+    const topBtn = document.getElementById('top-btn');
+
+    // Show button when scrolled down 300px
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            topBtn.classList.add('visible');
+        } else {
+            topBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll smoothly to top when clicked
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 </script>
