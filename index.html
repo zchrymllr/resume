@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zachary Miller | Comms, Marketing, & PR</title>
-    
+    <meta name="description" content="Strategic marketing leader specializing in brand strategy, digital analytics, and audience growth. View my portfolio and resume.">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.zchrymllr.com/">
     <meta property="og:title" content="Zachary Miller | Comms, Marketing, & PR">
     <meta property="og:description" content="Strategic marketing leader specializing in brand strategy, digital analytics, and audience growth. View my portfolio and resume.">
     <meta property="og:image" content="https://www.zchrymllr.com/assets/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Zachary Miller – Communications, Marketing, and PR professional">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.zchrymllr.com/">
-    <meta property="twitter:title" content="Zachary Miller | Comms, Marketing, & PR">
-    <meta property="twitter:description" content="Hello👋, I'm Zachary Miller – a communications, marketing, and public relations professional. Check out my page to learn more about my career and get in touch me.">
-    <meta property="twitter:image" content="https://www.zchrymllr.com/assets/social-preview.png">
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.zchrymllr.com/">
+    <meta name="twitter:title" content="Zachary Miller | Comms, Marketing, & PR">
+    <meta name="twitter:description" content="Hello, I'm Zachary Miller – a communications, marketing, and public relations professional. Check out my page to learn more about my career and get in touch.">
+    <meta name="twitter:image" content="https://www.zchrymllr.com/assets/social-preview.png">
 
     <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -23,7 +30,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="ZM Resume" />
     <link rel="manifest" href="assets/site.webmanifest" />
-    
+
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -518,12 +528,15 @@
 </div>
 
 <script>
-    // 1. Shrinking Header Logic
+    // 1. Shrinking Header & Back to Top (combined scroll listener)
     const header = document.getElementById("main-header");
+    const topBtn = document.getElementById('top-btn');
     let isScrolled = false;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+        const currentScroll = window.scrollY;
+
+        // Shrinking header
         if (!isScrolled && currentScroll > 50) {
             header.classList.add("scrolled");
             isScrolled = true;
@@ -531,9 +544,16 @@
             header.classList.remove("scrolled");
             isScrolled = false;
         }
+
+        // Back to top button visibility
+        topBtn.classList.toggle('visible', currentScroll > 300);
     });
 
-    // 1.5. Dynamic Header Spacer (Fix for Mobile Flicker)
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 2. Dynamic Header Spacer (Fix for Mobile Flicker)
     const spacer = document.createElement("div");
     spacer.id = "header-spacer";
     document.body.insertBefore(spacer, document.body.firstChild);
@@ -544,7 +564,7 @@
         }
     };
     updateSpacerHeight();
-    
+
     window.addEventListener('resize', () => {
         const wasScrolled = header.classList.contains("scrolled");
         if(wasScrolled) header.classList.remove("scrolled");
@@ -552,9 +572,9 @@
         if(wasScrolled) header.classList.add("scrolled");
     });
 
-    // 2. Dark Mode Logic (Classic Toggle with Expand Animation)
+    // 3. Dark Mode Logic (Classic Toggle with Expand Animation)
     const btn = document.getElementById('theme-btn');
-    
+
     const setTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
     };
@@ -575,7 +595,7 @@
         setTheme(event.matches ? "dark" : "light");
     });
 
-    // 3. Email Obfuscation Logic
+    // 4. Email Obfuscation Logic
     const contactLink = document.getElementById('contact-link');
     if (contactLink) {
         contactLink.addEventListener('click', (e) => {
@@ -586,7 +606,7 @@
         });
     }
 
-    // 4. 3D Tilt Logic
+    // 5. 3D Tilt Logic
     document.querySelectorAll('[data-tilt]').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -598,21 +618,7 @@
             card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
         });
     });
-
-    // 5. Back to Top Logic
-    const topBtn = document.getElementById('top-btn');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            topBtn.classList.add('visible');
-        } else {
-            topBtn.classList.remove('visible');
-        }
-    });
-    topBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 </script>
 
 </body>
-
 </html>
